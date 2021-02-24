@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -31,10 +32,11 @@ public class Produto {
 	
 	@Size(min = 2, max = 300)
 	private String desenvolvedora;
-	
-	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+
+	@ManyToOne
 	@JsonIgnoreProperties("produto")
-	private List<Categoria> categoria;
+	private Categoria categoria;
+	
 
 	public long getId() {
 		return id;
@@ -68,13 +70,12 @@ public class Produto {
 		this.desenvolvedora = desenvolvedora;
 	}
 
-	public List<Categoria> getCategoria() {
+	public Categoria getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(List<Categoria> categoria) {
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-	
 	
 }
