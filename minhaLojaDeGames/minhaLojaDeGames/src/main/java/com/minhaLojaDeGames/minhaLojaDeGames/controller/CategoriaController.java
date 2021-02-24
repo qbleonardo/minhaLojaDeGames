@@ -56,4 +56,8 @@ public class CategoriaController {
 		repository.deleteById(id);
 	}
 	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Controller
